@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #70432e;
+  color: rgb(169, 248, 189);
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  border-radius: 30% 10% 30%;
+  display: block; /* Asegura que la imagen no tenga elementos flotantes */
+  margin: auto; /* Centra horizontalmente */
+}

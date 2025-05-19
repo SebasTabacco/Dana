@@ -1,0 +1,259 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "card1 card2 card3"
+    "card4 card5 card6"
+    ". card7 .";
+  gap: 20px;
+  padding: 40px;
+  justify-content: center;
+}
+/* Posicionamiento de cada tarjeta */
+.card:nth-child(1) {
+  grid-area: card1;
+}
+.card:nth-child(2) {
+  grid-area: card2;
+}
+.card:nth-child(3) {
+  grid-area: card3;
+}
+.card:nth-child(4) {
+  grid-area: card4;
+}
+.card:nth-child(5) {
+  grid-area: card5;
+}
+.card:nth-child(6) {
+  grid-area: card6;
+}
+.card:nth-child(7) {
+  grid-area: card7;
+}
+.card {
+  width: 450px;
+  background: rgb(201, 235, 235);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(181, 82, 238, 0.418);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-img {
+  width: 50%;
+  height: 50%;
+  max-height: 180px; /* Limita la altura */
+  object-fit: cover;
+  border-radius: 20px 10px 20px;
+}
+
+h3 {
+  font-size: 22px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.profession {
+  font-size: 18px;
+  color: #555;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+p {
+  font-size: 16px;
+  color: #777;
+  margin-top: 10px;
+}
+@media (max-width: 1024px) {
+  /* Tablets */
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card7"; /* Último ocupa toda la fila */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Celulares */
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "card1"
+      "card2"
+      "card3"
+      "card4"
+      "card5"
+      "card6"
+      "card7"; /* Uno sobre otro */
+  }
+
+  .card-img {
+    width: 100%; /* Ajusta la imagen en celulares */
+    max-height: 150px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .profession {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+.ayuda {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 60px;
+  background-color: #f0e0b4;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+}
+
+/* Contenedor del texto – se limita para mejorar la legibilidad en pantallas amplias */
+.ayuda-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  /* También puedes centrar el bloque en su espacio si lo deseas:
+     margin: 0 auto; */
+}
+
+.ayuda-text h2 {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.ayuda-text h3 {
+  font-size: 26px;
+  color: #3498db;
+  margin-bottom: 8px;
+}
+
+.ayuda-text p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* Contenedor de la imagen – ahora un poco más grande */
+.ayuda-image {
+  flex: 0 0 800px;
+  height: 850px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ayuda-image .special-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+  .ayuda {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .ayuda-text {
+    max-width: 100%;
+  }
+  .ayuda-image {
+    flex: 0 0 auto;
+    width: 80%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+}
+/* Contenedor principal "sobre-mi" */
+.sobre-mi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #b290b9b2;
+  border-radius: 20px 10px 20px;
+  box-shadow: 0 4px 12px rgba(98, 241, 229, 0.493);
+}
+
+/* Contenedor de la imagen */
+.yo-img {
+  flex: 0 0 300px;
+  margin-right: 40px;
+}
+
+/* Estilo para la imagen de perfil */
+.profile-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor de texto (acerca de la historia) */
+.about-text {
+  flex: 1;
+  color: #333;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Adaptación responsiva para dispositivos móviles */
+@media (max-width: 768px) {
+  .sobre-mi {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .yo-img {
+    margin: 0 auto 20px;
+    width: 80%;
+    max-width: 300px;
+  }
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+  .about-text p {
+    font-size: 0.95rem;
+  }
+}

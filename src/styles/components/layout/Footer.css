@@ -1,0 +1,29 @@
+.footer {
+  /* Elimina position: fixed para que no quede pegado siempre en la parte inferior */
+  /* position: fixed; 
+     bottom: 0; */
+  width: 100%;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  /* No es necesario flex: 1 aquí */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f39c12;
+  transform: scale(1.2);
+}
