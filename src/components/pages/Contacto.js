@@ -1,9 +1,9 @@
-import { useState } from "react";
-import Footer from "./../../components/layout/Footer";
-import Header from "./../../components/layout/Header";
-import "./../../styles/components/pages/Contacto.css";
+// src/components/pages/Contacto.js
+import { useState } from 'react';
+import Footer from './Footer';
+import Header from './Header';
 
-const Contact = () => {
+const Contacto = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -17,16 +17,33 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Datos enviados:", formData);
-    alert("Tu consulta ha sido enviada.");
+
+    try {
+      const response = await fetch('http://localhost:3000/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const result = await response.json();
+      alert(result.message || "Consulta enviada correctamente.");
+    } catch (error) {
+      console.error("Error al enviar la consulta:", error);
+      alert("Hubo un error al enviar la consulta.");
+    }
   };
 
   return (
     <div>
-      <Header /> {/* Se muestra el Header arriba */}
-      
+      <Header />
       <div className="contact-container">
         <h2>Formulario de Contacto</h2>
         <form onSubmit={handleSubmit}>
@@ -57,11 +74,12 @@ const Contact = () => {
           <button type="submit">Enviar Consulta</button>
         </form>
       </div>
-
-      <Footer /> {/* Se muestra el Footer abajo */}
+      <Footer />
     </div>
   );
 };
 
-export default Contact;
+export default Contacto;
+
+
 
