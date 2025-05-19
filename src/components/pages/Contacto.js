@@ -1,7 +1,7 @@
 // src/components/pages/Contacto.js
 import { useState } from 'react';
-import Footer from './Footer';
-import Header from './Header';
+import Footer from './../layout/Footer';
+import Header from './../layout/Header';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
